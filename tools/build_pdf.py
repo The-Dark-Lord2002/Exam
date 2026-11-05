@@ -113,6 +113,7 @@ ol { list-style-type: persian; }
 li { margin: 2px 0; }
 hr { border: none; border-top: 1px dashed #b9c6d6; margin: 18px 0; }
 .pagebreak { break-before: page; }
+img { display: block; max-width: 55%; max-height: 70mm; margin: 8px auto; }
 a { color: #1f5fa8; text-decoration: none; }
 """
 
@@ -121,6 +122,8 @@ def build(md_path: pathlib.Path, ttf: pathlib.Path) -> pathlib.Path:
     md = md_path.read_text(encoding="utf-8")
     md = re.sub(r"\s*فایل اجرایی: \[`[^`]+`\]\([^)]+\)", "", md)  # لینک فایل در PDF کاربرد ندارد
     body = md_to_html(move_answers_to_end(md))
+    body = re.sub(r'src="(?!https?:|file:|data:)([^"]+)"',
+                  lambda m: f'src="{(md_path.parent / html.unescape(m.group(1))).resolve().as_uri()}"', body)
     title = re.search(r"^# (.+)$", md, re.M).group(1).strip()
     doc = (
         '<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8">'
