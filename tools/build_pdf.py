@@ -114,6 +114,7 @@ li { margin: 2px 0; }
 hr { border: none; border-top: 1px dashed #b9c6d6; margin: 18px 0; }
 .pagebreak { break-before: page; }
 img { display: block; max-width: 55%; max-height: 70mm; margin: 8px auto; }
+img[src*="/q/"] { max-width: 100%; max-height: 120mm; margin: 4px 0 10px auto; break-inside: avoid; }
 a { color: #1f5fa8; text-decoration: none; }
 """
 
