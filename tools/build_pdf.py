@@ -81,6 +81,8 @@ CSS = """
 @font-face { font-family: Vazirmatn; src: url('{ttf}/Vazirmatn-Regular.ttf'); font-weight: 400; }
 @font-face { font-family: Vazirmatn; src: url('{ttf}/Vazirmatn-Medium.ttf'); font-weight: 500; }
 @font-face { font-family: Vazirmatn; src: url('{ttf}/Vazirmatn-Bold.ttf'); font-weight: 700; }
+@font-face { font-family: CodeFA; src: url('{ttf}/Vazirmatn-Regular.ttf');
+  unicode-range: U+0600-06FF, U+200C-200F, U+FB50-FDFF, U+FE70-FEFF; }
 @page { size: A4; margin: 16mm 15mm 18mm 15mm; }
 html { direction: rtl; }
 body { font-family: Vazirmatn, 'DejaVu Sans', sans-serif; font-size: 11.5pt; line-height: 1.85;
@@ -101,7 +103,7 @@ thead { display: table-header-group; }
 th { background: #e6edf6; color: #1f3a5f; }
 th, td { border: 1px solid #b9c6d6; padding: 5px 8px; text-align: right; vertical-align: top; }
 tr:nth-child(even) td { background: #fafbfd; }
-code { font-family: 'DejaVu Sans Mono', 'DejaVu Sans', Vazirmatn, monospace; font-size: 0.9em;
+code { font-family: CodeFA, 'DejaVu Sans Mono', 'DejaVu Sans', Vazirmatn, monospace; font-size: 0.9em;
        direction: ltr; unicode-bidi: isolate; background: #f2f2f2; padding: 1px 4px; border-radius: 3px; }
 pre { direction: ltr; text-align: left; background: #f6f8fa; border: 1px solid #d8dee4;
       border-radius: 6px; padding: 8px 12px; font-size: 10pt; line-height: 1.5; break-inside: avoid; }
@@ -117,6 +119,7 @@ a { color: #1f5fa8; text-decoration: none; }
 
 def build(md_path: pathlib.Path, ttf: pathlib.Path) -> pathlib.Path:
     md = md_path.read_text(encoding="utf-8")
+    md = re.sub(r"\s*فایل اجرایی: \[`[^`]+`\]\([^)]+\)", "", md)  # لینک فایل در PDF کاربرد ندارد
     body = md_to_html(move_answers_to_end(md))
     title = re.search(r"^# (.+)$", md, re.M).group(1).strip()
     doc = (
