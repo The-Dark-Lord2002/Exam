@@ -674,7 +674,7 @@ def build_chapter(md_path: pathlib.Path) -> Chapter:
         got = []
         while j < len(blocks):
             b = blocks[j]
-            if b.name in ("ul", "ol"):
+            if b.name in ("ul", "ol", "table"):
                 got.append(b); j += 1; prev_code = False; lead_empty = False; continue
             if is_code(b):
                 got.append(b); j += 1; prev_code = True; continue
