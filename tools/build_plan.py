@@ -394,6 +394,7 @@ tr.fri td{background:#eef7ee!important}
 .cover .pill{margin-top:22pt;background:rgba(255,255,255,.15);border-radius:30px;padding:8px 22px;font-size:12pt}
 .cover .ft{margin-top:40pt;font-size:10pt;opacity:.8}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:9pt}
+.dayp{font-size:8.6pt;line-height:1.55}.dayp td{padding:3px 6px}.dayp .card{padding:6px 10px}
 .card{border:1px solid #e2e6ee;border-radius:10px;padding:8px 11px;background:#fbfcfe}
 .card h4{margin:0 0 3pt;font-size:10.5pt;color:#283593}
 ul{margin:2pt 0;padding-right:16px}li{margin:1pt 0}
@@ -452,23 +453,26 @@ def overview():
 
 
 def day_page():
-    return f"""<section class="sec">{mk('day')}
+    return f"""<section class="sec dayp">{mk('day')}
 <h2>یک روز معمولی</h2>
 <table><tr><th>ساعت</th><th>بلوک</th><th>کار</th></tr>
-<tr><td class="day">۰۷:۳۰</td><td>زبان</td><td>۲۰ لغت لایتنر</td></tr>
-<tr><td class="day">۰۸:۰۰</td><td><b>ریاضی: یادگیری</b></td><td>ستون «ریاضی» در جدول هفته</td></tr>
-<tr><td class="day">۰۹:۴۵</td><td><b>تخصصی A: یادگیری</b></td><td>ستون «تخصصی A»</td></tr>
-<tr><td class="day">۱۱:۱۵</td><td>تست ریاضی کوتاه</td><td>۱۰ تا ۱۲ تست زمان‌دار همان مبحث صبح</td></tr>
-<tr><td class="day">۱۲:۰۰</td><td>ناهار / جلسهٔ پایان‌نامه</td><td>بدون صفحه‌نمایش (جز جلسه)</td></tr>
-<tr><td class="day">۱۴:۰۰</td><td><b>تخصصی A: تست</b></td><td>۲۰ تست زمان‌دار همان مبحث + تحلیل</td></tr>
+<tr><td class="day">۰۷:۰۰</td><td>صبح</td><td>بیداری، صبحانه، ۱۰ دقیقه لغت</td></tr>
+<tr><td class="day">۰۸:۰۰</td><td><b>ریاضی: درس‌نامه</b></td><td>ستون «ریاضی» در جدول هفته (تا ۰۹:۳۰؛ ۱۵ دقیقه استراحت بدون گوشی)</td></tr>
+<tr><td class="day">۰۹:۴۵</td><td><b>تخصصی A: درس‌نامه</b></td><td>ستون «تخصصی A» (تا ۱۱:۱۵؛ ۱۵ دقیقه استراحت)</td></tr>
+<tr><td class="day">۱۱:۳۰</td><td>تست ریاضی کوتاه</td><td>۱۰ تا ۱۲ تست زمان‌دار همان مبحث صبح (تا ۱۲:۱۵)</td></tr>
+<tr><td class="day">۱۲:۱۵</td><td>ناهار</td><td>+ ۲۰ دقیقه چرت؛ بدون صفحه‌نمایش</td></tr>
+<tr><td class="day">۱۴:۰۰</td><td><b>تخصصی A: تست</b></td><td>۱۵ تا ۲۰ تست زمان‌دار همان مبحث + تحلیل</td></tr>
 <tr><td class="day">۱۵:۴۵</td><td><b>تخصصی B</b></td><td>ستون «تخصصی B»: نیم درس‌نامه، نیم تست</td></tr>
-<tr><td class="day">۱۷:۱۵</td><td>مرور</td><td>کارت خلاصهٔ دیروز، ۳ روز و ۷ روز پیش · دفتر خطا · «پایان جلسه»</td></tr>
-<tr><td class="day">۲۰ تا ۲۲</td><td>شرکت / مقاله</td><td>سقف سخت: ۲۲:۰۰ · خواب ۲۳:۳۰ · بیداری ۰۷:۰۰</td></tr></table>
+<tr><td class="day">۱۷:۱۵</td><td>مرور</td><td>کارت خلاصهٔ ۱، ۳ و ۷ روز پیش · دفتر خطا · «پایان جلسه» (تا ۱۷:۴۵)</td></tr>
+<tr><td class="day">۱۷:۴۵</td><td>پیاده‌روی</td><td>۳۰ دقیقه؛ بعد شام و استراحت تا ۲۰:۰۰، بدون درس</td></tr>
+<tr><td class="day">۲۰ تا ۲۲</td><td>کار شرکت</td><td>سقف سخت: ۲۲:۰۰</td></tr>
+<tr><td class="day">۲۲:۰۰</td><td>زبان</td><td>۲۰ لغت + لایتنر؛ سه‌شنبه و پنجشنبه درک مطلب · خواب ۲۳:۳۰</td></tr></table>
 <div class="grid" style="margin-top:9pt">
 <div class="card"><h4>روزهای خاص</h4><ul>
-<li><b>یکشنبهٔ فرد:</b> ۸ تا ۱۰ کلاس · ۱۰:۱۵ ریاضی یادگیری · ۱۴:۰۰ تخصصی A یادگیری · ۱۵:۴۵ تخصصی A تست · ۱۷:۱۵ مرور (تست ریاضی و بلوک B ندارد).</li>
-<li><b>دوشنبه:</b> صبح عادی · ۱۴ تا ۱۶ کلاس الگوریتم · ۱۶:۱۵ تخصصی A تست (B ندارد).</li>
-<li><b>جمعه:</b> ۸ تا ۱۱ آزمون هفتگی · ۱۱:۱۵ تحلیل و دفتر خطا · ۱۴ تا ۱۸ مقاله · ۲۲:۰۰ جدول هفتگی.</li>
+<li><b>یکشنبهٔ فرد:</b> ۸ تا ۱۰ کلاس · ۱۰:۱۵ ریاضی درس‌نامه · ۱۲ تا ۱۳ جلسهٔ کار · ۱۳:۱۵ استاد راهنما · ۱۴:۴۵ تخصصی A درس‌نامه · ۱۶:۳۰ تخصصی A تست کوتاه · ۱۷:۳۰ مرور (تست ریاضی و B ندارد).</li>
+<li><b>یکشنبهٔ زوج:</b> صبح عادی · ۱۱:۱۵ مرور و رفتن به جلسه · ۱۲ تا ۱۳ جلسهٔ کار · ۱۴:۰۰ تخصصی A تست · ۱۵:۴۵ B · ۱۷:۱۵ تست ریاضی کوتاه.</li>
+<li><b>دوشنبه:</b> صبح عادی · ۱۴ تا ۱۶ کلاس الگوریتم · ۱۶:۱۵ تخصصی A تست · ۱۷:۴۵ مرور (B ندارد).</li>
+<li><b>جمعه:</b> ۸ تا ۱۱ آزمون هفتگی · ۱۱:۱۵ تحلیل و دفتر خطا · ۱۴ تا ۱۶ پایان‌نامه و مقاله · از ۱۶ آزاد · ۲۲:۰۰ جدول هفتگی.</li>
 <li><b>روز سخت (کار سنگین یا خستگی):</b> «حالت حداقل» = فقط درس ریاضی و درس تخصصی A همان روز، هر کدام ۴۵ تا ۹۰ دقیقه. تست‌ها و B بدهی می‌شوند. روز حداقل، روز شکست نیست.</li>
 <li><b>بیماری:</b> استراحت؛ فقط اگر حالت خوب بود، ۱۰ دقیقه کارت خلاصه. بعد از خوب شدن، از روز جاری برنامه ادامه بده، نه از عقب.</li>
 </ul></div>
@@ -506,13 +510,13 @@ def week_page(i, w):
     if i == 8:
         cp = " · <b>نقطهٔ کنترل ۲</b>"
     rows.append(f'<tr class="fri"><td class="day">جمعه<small>{fa(dd)} {mm}</small></td><td colspan="4">'
-                f'۸ تا ۱۱ <b>آزمون هفتگی</b> («آزمون هفتگی» به Claude) · ۱۱:۱۵ تحلیل و دفتر خطا · ۱۴ تا ۱۸ مقاله · '
+                f'۸ تا ۱۱ <b>آزمون هفتگی</b> («آزمون هفتگی» به Claude) · ۱۱:۱۵ تحلیل و دفتر خطا · ۱۴ تا ۱۶ پایان‌نامه و مقاله · '
                 f'۲۲:۰۰ جدول هفتگی{cp}</td></tr>')
     return f"""<section class="sec">{mk(f'w{i + 1}')}
 <div class="band"><div class="wn">{fa(i + 1)}</div><div><div class="wt">هفتهٔ {fa(i + 1)} · {w['title']}</div>
 <div class="wd">{wrange(i)} · فاز ۱</div></div></div>
 <div class="wnote">{w['note']}</div>
-<table><tr><th>روز</th><th>ریاضی (۰۸:۰۰ + تست ۱۱:۱۵)</th><th>تخصصی A (۰۹:۴۵ + تست ۱۴:۰۰)</th>
+<table><tr><th>روز</th><th>ریاضی (۰۸:۰۰ + تست ۱۱:۳۰)</th><th>تخصصی A (۰۹:۴۵ + تست ۱۴:۰۰)</th>
 <th>تخصصی B (۱۵:۴۵)</th><th>✓</th></tr>{''.join(rows)}</table>
 <div class="legend">«{EVEN}»: در یکشنبهٔ فرد کلاس داری و بلوک B نیست؛ آن مبحث را فقط با تست، در بلوک B روز بعدی که خالی است جبران کن.</div>
 </section>"""
