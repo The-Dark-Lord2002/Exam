@@ -394,6 +394,7 @@ tr.fri td{background:#eef7ee!important}
 .cover .pill{margin-top:22pt;background:rgba(255,255,255,.15);border-radius:30px;padding:8px 22px;font-size:12pt}
 .cover .ft{margin-top:40pt;font-size:10pt;opacity:.8}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:9pt}
+.dayp{font-size:8.6pt;line-height:1.55}.dayp td{padding:3px 6px}.dayp .card{padding:6px 10px}
 .card{border:1px solid #e2e6ee;border-radius:10px;padding:8px 11px;background:#fbfcfe}
 .card h4{margin:0 0 3pt;font-size:10.5pt;color:#283593}
 ul{margin:2pt 0;padding-right:16px}li{margin:1pt 0}
@@ -452,23 +453,26 @@ def overview():
 
 
 def day_page():
-    return f"""<section class="sec">{mk('day')}
+    return f"""<section class="sec dayp">{mk('day')}
 <h2>یک روز معمولی</h2>
 <table><tr><th>ساعت</th><th>بلوک</th><th>کار</th></tr>
-<tr><td class="day">۰۷:۳۰</td><td>زبان</td><td>۲۰ لغت لایتنر</td></tr>
-<tr><td class="day">۰۸:۰۰</td><td><b>ریاضی: یادگیری</b></td><td>ستون «ریاضی» در جدول هفته</td></tr>
-<tr><td class="day">۰۹:۴۵</td><td><b>تخصصی A: یادگیری</b></td><td>ستون «تخصصی A»</td></tr>
-<tr><td class="day">۱۱:۱۵</td><td>تست ریاضی کوتاه</td><td>۱۰ تا ۱۲ تست زمان‌دار همان مبحث صبح</td></tr>
-<tr><td class="day">۱۲:۰۰</td><td>ناهار / جلسهٔ پایان‌نامه</td><td>بدون صفحه‌نمایش (جز جلسه)</td></tr>
-<tr><td class="day">۱۴:۰۰</td><td><b>تخصصی A: تست</b></td><td>۲۰ تست زمان‌دار همان مبحث + تحلیل</td></tr>
+<tr><td class="day">۰۷:۰۰</td><td>صبح</td><td>بیداری، صبحانه، ۱۰ دقیقه لغت</td></tr>
+<tr><td class="day">۰۸:۰۰</td><td><b>ریاضی: درس‌نامه</b></td><td>ستون «ریاضی» در جدول هفته (تا ۰۹:۳۰؛ ۱۵ دقیقه استراحت بدون گوشی)</td></tr>
+<tr><td class="day">۰۹:۴۵</td><td><b>تخصصی A: درس‌نامه</b></td><td>ستون «تخصصی A» (تا ۱۱:۱۵؛ ۱۵ دقیقه استراحت)</td></tr>
+<tr><td class="day">۱۱:۳۰</td><td>تست ریاضی کوتاه</td><td>۱۰ تا ۱۲ تست زمان‌دار همان مبحث صبح (تا ۱۲:۱۵)</td></tr>
+<tr><td class="day">۱۲:۱۵</td><td>ناهار</td><td>+ ۲۰ دقیقه چرت؛ بدون صفحه‌نمایش</td></tr>
+<tr><td class="day">۱۴:۰۰</td><td><b>تخصصی A: تست</b></td><td>۱۵ تا ۲۰ تست زمان‌دار همان مبحث + تحلیل</td></tr>
 <tr><td class="day">۱۵:۴۵</td><td><b>تخصصی B</b></td><td>ستون «تخصصی B»: نیم درس‌نامه، نیم تست</td></tr>
-<tr><td class="day">۱۷:۱۵</td><td>مرور</td><td>کارت خلاصهٔ دیروز، ۳ روز و ۷ روز پیش · دفتر خطا · «پایان جلسه»</td></tr>
-<tr><td class="day">۲۰ تا ۲۲</td><td>شرکت / مقاله</td><td>سقف سخت: ۲۲:۰۰ · خواب ۲۳:۳۰ · بیداری ۰۷:۰۰</td></tr></table>
+<tr><td class="day">۱۷:۱۵</td><td>مرور</td><td>کارت خلاصهٔ ۱، ۳ و ۷ روز پیش · دفتر خطا · «پایان جلسه» (تا ۱۷:۴۵)</td></tr>
+<tr><td class="day">۱۷:۴۵</td><td>پیاده‌روی</td><td>۳۰ دقیقه؛ بعد شام و استراحت تا ۲۰:۰۰، بدون درس</td></tr>
+<tr><td class="day">۲۰ تا ۲۲</td><td>کار شرکت</td><td>سقف سخت: ۲۲:۰۰</td></tr>
+<tr><td class="day">۲۲:۰۰</td><td>زبان</td><td>۲۰ لغت + لایتنر؛ سه‌شنبه و پنجشنبه درک مطلب · خواب ۲۳:۳۰</td></tr></table>
 <div class="grid" style="margin-top:9pt">
 <div class="card"><h4>روزهای خاص</h4><ul>
-<li><b>یکشنبهٔ فرد:</b> ۸ تا ۱۰ کلاس · ۱۰:۱۵ ریاضی یادگیری · ۱۴:۰۰ تخصصی A یادگیری · ۱۵:۴۵ تخصصی A تست · ۱۷:۱۵ مرور (تست ریاضی و بلوک B ندارد).</li>
-<li><b>دوشنبه:</b> صبح عادی · ۱۴ تا ۱۶ کلاس الگوریتم · ۱۶:۱۵ تخصصی A تست (B ندارد).</li>
-<li><b>جمعه:</b> ۸ تا ۱۱ آزمون هفتگی · ۱۱:۱۵ تحلیل و دفتر خطا · ۱۴ تا ۱۸ مقاله · ۲۲:۰۰ جدول هفتگی.</li>
+<li><b>یکشنبهٔ فرد:</b> ۸ تا ۱۰ کلاس · ۱۰:۱۵ ریاضی درس‌نامه · ۱۲ تا ۱۳ جلسهٔ کار · ۱۳:۱۵ استاد راهنما · ۱۴:۴۵ تخصصی A درس‌نامه · ۱۶:۳۰ تخصصی A تست کوتاه · ۱۷:۳۰ مرور (تست ریاضی و B ندارد).</li>
+<li><b>یکشنبهٔ زوج:</b> صبح عادی · ۱۱:۱۵ مرور و رفتن به جلسه · ۱۲ تا ۱۳ جلسهٔ کار · ۱۴:۰۰ تخصصی A تست · ۱۵:۴۵ B · ۱۷:۱۵ تست ریاضی کوتاه.</li>
+<li><b>دوشنبه:</b> صبح عادی · ۱۴ تا ۱۶ کلاس الگوریتم · ۱۶:۱۵ تخصصی A تست · ۱۷:۴۵ مرور (B ندارد).</li>
+<li><b>جمعه:</b> ۸ تا ۱۱ آزمون هفتگی · ۱۱:۱۵ تحلیل و دفتر خطا · ۱۴ تا ۱۶ پایان‌نامه و مقاله · از ۱۶ آزاد · ۲۲:۰۰ جدول هفتگی.</li>
 <li><b>روز سخت (کار سنگین یا خستگی):</b> «حالت حداقل» = فقط درس ریاضی و درس تخصصی A همان روز، هر کدام ۴۵ تا ۹۰ دقیقه. تست‌ها و B بدهی می‌شوند. روز حداقل، روز شکست نیست.</li>
 <li><b>بیماری:</b> استراحت؛ فقط اگر حالت خوب بود، ۱۰ دقیقه کارت خلاصه. بعد از خوب شدن، از روز جاری برنامه ادامه بده، نه از عقب.</li>
 </ul></div>
@@ -506,13 +510,13 @@ def week_page(i, w):
     if i == 8:
         cp = " · <b>نقطهٔ کنترل ۲</b>"
     rows.append(f'<tr class="fri"><td class="day">جمعه<small>{fa(dd)} {mm}</small></td><td colspan="4">'
-                f'۸ تا ۱۱ <b>آزمون هفتگی</b> («آزمون هفتگی» به Claude) · ۱۱:۱۵ تحلیل و دفتر خطا · ۱۴ تا ۱۸ مقاله · '
+                f'۸ تا ۱۱ <b>آزمون هفتگی</b> («آزمون هفتگی» به Claude) · ۱۱:۱۵ تحلیل و دفتر خطا · ۱۴ تا ۱۶ پایان‌نامه و مقاله · '
                 f'۲۲:۰۰ جدول هفتگی{cp}</td></tr>')
     return f"""<section class="sec">{mk(f'w{i + 1}')}
 <div class="band"><div class="wn">{fa(i + 1)}</div><div><div class="wt">هفتهٔ {fa(i + 1)} · {w['title']}</div>
 <div class="wd">{wrange(i)} · فاز ۱</div></div></div>
 <div class="wnote">{w['note']}</div>
-<table><tr><th>روز</th><th>ریاضی (۰۸:۰۰ + تست ۱۱:۱۵)</th><th>تخصصی A (۰۹:۴۵ + تست ۱۴:۰۰)</th>
+<table><tr><th>روز</th><th>ریاضی (۰۸:۰۰ + تست ۱۱:۳۰)</th><th>تخصصی A (۰۹:۴۵ + تست ۱۴:۰۰)</th>
 <th>تخصصی B (۱۵:۴۵)</th><th>✓</th></tr>{''.join(rows)}</table>
 <div class="legend">«{EVEN}»: در یکشنبهٔ فرد کلاس داری و بلوک B نیست؛ آن مبحث را فقط با تست، در بلوک B روز بعدی که خالی است جبران کن.</div>
 </section>"""
@@ -589,10 +593,117 @@ def rules_page():
 </section>"""
 
 
+
+# ---------------------------------------------------------------- جدول هفتگی (ساعت‌ها، v3)
+GRID_CSS = """
+@page wide{size:A4 landscape;margin:9mm 10mm}
+.wide{page:wide}
+.wk{width:100%;border-collapse:separate;border-spacing:3px;font-size:8.2pt;line-height:1.35;table-layout:fixed}
+.wk th{background:#1f2a44;color:#fff;border-radius:7px;padding:6px 3px;text-align:center;font-size:9pt}
+.wk th small{display:block;font-weight:400;opacity:.8;font-size:7pt}
+.wk td{border-radius:7px;padding:5px 4px;text-align:center;vertical-align:middle;border:none;background:#f0efec}
+.wk td.t{background:#fff;border:1px solid #e2e6ee;font-weight:700;color:#1f2a44;white-space:nowrap;font-size:7.8pt}
+.wk td b{display:block;font-size:8.6pt}
+.wk td small{display:block;color:#5b6475;font-size:7pt;margin-top:1px}
+.wk .m{background:#dbe7fb}.wk .mt{background:#eaf2fd}
+.wk .a{background:#d6f0dc}.wk .at{background:#e9f7ec}
+.wk .bb{background:#e6defa}
+.wk .cls{background:#3c4a6b;color:#fff}.wk .cls small{color:#dfe5f2}
+.wk .ex{background:#c94040;color:#fff}.wk .ex small{color:#fde}
+.wk .exa{background:#f4d4d4}
+.wk .th{background:#f9d9e6}
+.wk .wo{background:#fbe1cf}
+.wk .en{background:#fdf1c2}
+.wk .rv{background:#e8e6f5}
+.wk .fr{background:#f3f3f0;color:#7a8191}
+.wkleg{font-size:7.6pt;color:#4a5263;margin-top:4pt;display:flex;flex-wrap:wrap;gap:4px 12px}
+.wkleg span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:3px;margin-left:4px;
+ background:var(--c);vertical-align:middle}
+.wknote{font-size:7.8pt;background:#fff;border:1px solid #e2e6ee;border-radius:8px;padding:5px 9px;margin-top:5pt}
+"""
+
+
+def _c(cls, title, sub="", rs=1, cs=1):
+    span = (f' rowspan="{rs}"' if rs > 1 else "") + (f' colspan="{cs}"' if cs > 1 else "")
+    s = f"<small>{sub}</small>" if sub else ""
+    return f'<td class="{cls}"{span}><b>{title}</b>{s}</td>'
+
+
+def week_grid() -> str:
+    days = ["شنبه", "یکشنبه<small>هفتهٔ فرد</small>", "یکشنبه<small>هفتهٔ زوج</small>", "دوشنبه",
+            "سه‌شنبه", "چهارشنبه", "پنجشنبه", "جمعه"]
+    M = _c("m", "ریاضی", "درس‌نامه + مثال")
+    A = _c("a", "تخصصی A", "درس‌نامه")
+    MT = _c("mt", "تست ریاضی", "۱۰ تا ۱۲ تست")
+    AT = _c("at", "تست تخصصی A", "۱۵ تا ۲۰ تست + تحلیل")
+    B = _c("bb", "تخصصی B", "نیم درس‌نامه، نیم تست")
+    L = _c("fr", "ناهار + ۲۰ دقیقه چرت")
+    R = _c("rv", "مرور", "کارت‌ها ۱، ۳، ۷ روز + دفتر خطا")
+    W = _c("fr", "پیاده‌روی / ورزش")
+    rows = [
+        ("۰۷:۰۰ تا ۰۸:۰۰", [_c("fr", "بیداری، صبحانه، ۱۰ دقیقه لغت", cs=8)]),
+        ("۰۸:۰۰ تا ۰۹:۳۰", [M, _c("cls", "کلاس طراحی الگوریتم", "۰۸:۰۰ تا ۱۰:۰۰"), M, M, M, M, M,
+                            _c("ex", "آزمون هفتگی زمان‌دار", "۰۸:۰۰ تا ۱۱:۰۰ · مباحث همین هفته و قبل", rs=2)]),
+        ("۰۹:۴۵ تا ۱۱:۱۵", [A, _c("m", "ریاضی", "درس‌نامه · ۱۰:۱۵ تا ۱۱:۴۵"), A, A, A, A, A]),
+        ("۱۱:۳۰ تا ۱۲:۱۵", [MT, _c("cls", "جلسهٔ حضوری کار", "۱۲:۰۰ تا ۱۳:۰۰"),
+                            _c("rv", "مرور کارت‌ها", "۱۱:۱۵ تا ۱۲:۰۰ · رفتن به جلسه"), MT, MT, MT, MT,
+                            _c("exa", "تحلیل آزمون + دفتر خطا", "۱۱:۱۵ تا ۱۲:۴۵")]),
+        ("۱۲:۱۵ تا ۱۴:۰۰", [L, _c("cls", "استاد راهنما", "۱۳:۱۵ تا ۱۴:۰۰ (پیشنهادی)"),
+                            _c("cls", "جلسهٔ حضوری کار", "۱۲ تا ۱۳ · ناهار ۱۳ تا ۱۴"), L, L, L, L, _c("fr", "ناهار")]),
+        ("۱۴:۰۰ تا ۱۵:۳۰", [AT, _c("a", "تخصصی A", "ناهار ۱۴ تا ۱۴:۴۵ · درس‌نامه ۱۴:۴۵ تا ۱۶:۱۵"), AT,
+                            _c("cls", "کلاس طراحی الگوریتم", "۱۴:۰۰ تا ۱۶:۰۰"), AT, AT, AT,
+                            _c("th", "پایان‌نامه و مقاله", "۱۴:۰۰ تا ۱۶:۰۰")]),
+        ("۱۵:۴۵ تا ۱۷:۱۵", [B, _c("at", "تست تخصصی A", "کوتاه · ۱۶:۳۰ تا ۱۷:۳۰"), B,
+                            _c("at", "تست تخصصی A", "۱۶:۱۵ تا ۱۷:۴۵"), B, B, B, _c("fr", "آزاد", rs=5)]),
+        ("۱۷:۱۵ تا ۱۷:۴۵", [R, _c("rv", "مرور", "۱۷:۳۰ تا ۱۸:۰۰"), _c("mt", "تست ریاضی", "کوتاه · ۱۷:۱۵ تا ۱۸:۰۰"),
+                            _c("rv", "مرور", "۱۷:۴۵ تا ۱۸:۱۵"), R, R, R]),
+        ("۱۷:۴۵ تا ۱۸:۱۵", [W, _c("fr", "—"), W, _c("fr", "—"), W, W, W]),
+        ("۱۸:۱۵ تا ۲۰:۰۰", [_c("fr", "شام و استراحت (بدون درس)", cs=7)]),
+        ("۲۰:۰۰ تا ۲۲:۰۰", [_c("wo", "کار شرکت", "سقف سخت: ۲۲:۰۰", cs=7)]),
+        ("۲۲:۰۰ تا ۲۲:۳۰", [_c("en", "زبان", "۲۰ لغت + لایتنر · سه‌شنبه و پنجشنبه: درک مطلب", cs=7),
+                            _c("en", "مرور برنامهٔ هفتهٔ بعد", "+ جدول هفتگی")]),
+        ("۲۳:۳۰", [_c("fr", "خواب (بیداری ۰۷:۰۰)", cs=8)]),
+    ]
+    head = "<tr><th>ساعت</th>" + "".join(f"<th>{d}</th>" for d in days) + "</tr>"
+    body = "".join(f'<tr><td class="t">{t}</td>{"".join(cells)}</tr>' for t, cells in rows)
+    leg = [("#dbe7fb", "ریاضی (گسسته / احتمال / جبر خطی)"), ("#d6f0dc", "تخصصی A: درس سنگین هفته"),
+           ("#e6defa", "تخصصی B: درس سبک هفته"), ("#3c4a6b", "کلاس و جلسه"), ("#fbe1cf", "کار شرکت"),
+           ("#f9d9e6", "پایان‌نامه"), ("#fdf1c2", "زبان"), ("#c94040", "آزمون"), ("#e8e6f5", "مرور")]
+    legend = "".join(f'<span style="--c:{c}">{t}</span>' for c, t in leg)
+    return (f'<table class="wk">{head}{body}</table><div class="wkleg">{legend}</div>'
+            '<div class="wknote">مبحث هر خانه از جدول هفتهٔ همین برنامه خوانده می‌شود · '
+            '<b>روز سخت:</b> فقط درس‌نامهٔ ریاضی و تخصصی A · <b>بیماری:</b> استراحت · '
+            '<b>از ۳ بهمن:</b> آزمون جامع شنبه، سه‌شنبه و پنجشنبه ۰۸:۰۰ تا ۱۲:۰۰؛ کار فقط ۱ ساعت؛ پایان‌نامه متوقف · '
+            '<b>آزمون: جمعه ۱۶ بهمن</b></div>')
+
+
+def grid_page() -> str:
+    return (f'<section class="sec wide">{mk("grid")}<h2 style="margin-bottom:5pt">برنامهٔ هفتگی (ساعت‌ها) '
+            f'<span style="font-size:9pt;font-weight:400;color:#6b7385">· از ۲۲ آبان ۱۴۰۵ · خواب ۲۳:۳۰ و بیداری ۰۷:۰۰ ثابت</span>'
+            f'</h2>{week_grid()}</section>')
+
+
+def export_grid_png(path: pathlib.Path):
+    fonts = bb.ensure_fonts()
+    html = (f'<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><style>{bb.font_css(fonts)}{CSS}'
+            f'{GRID_CSS}body{{background:#f7f6f3;padding:22px 26px;width:1500px}}.wk{{font-size:10.5pt}}'
+            f'.wk td b{{font-size:11pt}}.wk td small{{font-size:8.6pt}}.wk th{{font-size:11.5pt}}'
+            f'.wkleg,.wknote{{font-size:9.5pt}}</style></head><body>'
+            f'<h1 style="font-size:24pt">برنامهٔ هفتگی کنکور دکتری ۱۴۰۶</h1>'
+            f'<div style="color:#6b7385;margin-bottom:12px">نسخهٔ ۳ · از ۲۲ آبان ۱۴۰۵ · بلوک‌ها ۹۰ دقیقه، بدون گوشی · '
+            f'خواب ۲۳:۳۰ و بیداری ۰۷:۰۰ ثابت</div>{week_grid()}</body></html>')
+    with tempfile.TemporaryDirectory() as tmp:
+        h = pathlib.Path(tmp) / "grid.html"
+        h.write_text(html, encoding="utf-8")
+        import subprocess
+        subprocess.run(["node", str(bb.TOOLS / "screenshot.js"), str(h), str(path)], check=True)
+    print(f"{path.relative_to(bb.ROOT)}")
+
+
 def build():
     fonts = bb.ensure_fonts()
-    body = cover() + overview() + day_page() + "".join(week_page(i, w) for i, w in enumerate(W)) + p2_page() + rules_page()
-    html = (f'<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><style>{bb.font_css(fonts)}{CSS}'
+    body = cover() + overview() + grid_page() + day_page() + "".join(week_page(i, w) for i, w in enumerate(W)) + p2_page() + rules_page()
+    html = (f'<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><style>{bb.font_css(fonts)}{CSS}{GRID_CSS}'
             f'</style></head><body>{body}</body></html>')
     with tempfile.TemporaryDirectory() as tmp:
         h, p = pathlib.Path(tmp) / "plan.html", pathlib.Path(tmp) / "plan.pdf"
@@ -604,7 +715,7 @@ def build():
         r = PdfReader(p)
         wr = PdfWriter()
         wr.append(r)
-        marks = [("overview", "نقشهٔ ۱۳ هفته"), ("day", "یک روز معمولی")]
+        marks = [("overview", "نقشهٔ ۱۳ هفته"), ("grid", "برنامهٔ هفتگی (ساعت‌ها)"), ("day", "یک روز معمولی")]
         marks += [(f"w{i + 1}", f"هفتهٔ {fa(i + 1)} · {wrange(i)}") for i in range(len(W))]
         marks += [("p2", f"هفتهٔ ۱۰ · فاز ۲ · {wrange(9)}"), ("p2b", f"هفتهٔ ۱۱ · فاز ۲ · {wrange(10)}"),
                   ("p3", f"هفتهٔ ۱۲ · فاز ۳ · {wrange(11)}"), ("p4", f"هفتهٔ ۱۳ · هفتهٔ آزمون · {wrange(12)}"),
@@ -648,5 +759,6 @@ def write_progress():
 
 if __name__ == "__main__":
     build()
+    export_grid_png(bb.ROOT / "tutor" / "weekly-schedule-v3.png")
     if "--progress" in sys.argv:
         write_progress()
